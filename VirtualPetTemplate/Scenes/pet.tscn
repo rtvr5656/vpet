@@ -1,0 +1,72 @@
+[gd_scene load_steps=4 format=3 uid="uid://bkpdagv64pvx3"]
+
+[ext_resource type="Script" path="res://Scripts/pet_script.gd" id="1_fpq0i"]
+[ext_resource type="Texture2D" uid="uid://b65mydwc7aseh" path="res://icon.svg" id="2_q7ur3"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_r0o7y"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_q7ur3")
+}],
+"loop": true,
+"name": &"falling",
+"speed": 7.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_q7ur3")
+}],
+"loop": true,
+"name": &"going_up",
+"speed": 7.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_q7ur3")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 7.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_q7ur3")
+}],
+"loop": true,
+"name": &"walking",
+"speed": 7.0
+}]
+
+[node name="pet" type="Node2D"]
+script = ExtResource("1_fpq0i")
+
+[node name="petSprite" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(100, 142)
+scale = Vector2(0.890625, 0.890625)
+sprite_frames = SubResource("SpriteFrames_r0o7y")
+animation = &"falling"
+
+[node name="msg" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_right = 200.0
+offset_bottom = 34.0
+
+[node name="Background" type="ColorRect" parent="msg"]
+layout_mode = 0
+offset_left = 9.0
+offset_right = 191.0
+offset_bottom = 34.0
+
+[node name="Text" type="Label" parent="msg/Background"]
+layout_mode = 0
+offset_right = 182.0
+offset_bottom = 34.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 24
+text = "text"
+horizontal_alignment = 1
+clip_text = true
